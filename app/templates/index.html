@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <!-- Welcome the user -->
+    <section class="section">
+        <h2>Hi, {{ user.username }}!</h2>
+        <p>Welcome back to MicroBlog. Explore the latest posts from your network below.</p>
+    </section>
+
+    <!-- Display Recent Posts -->
+    <section class="section">
+        <h2>Recent Posts</h2>
+        {% if posts %}
+            {% for post in posts %}
+            <div class="post" style="margin-bottom: 20px; padding: 10px; border: 1px solid #ddd; border-radius: 5px;">
+                <p><span class="post-author" style="font-weight: bold;">{{ post.author.username }}</span> says: <b>{{ post.body }}</b></p>
+            </div>
+            {% endfor %}
+        {% else %}
+            <p>No posts to display yet. Start sharing your thoughts!</p>
+        {% endif %}
+    </section>
+
+    <!-- Fun ASCII Art -->
+    <div class="ascii-art">
+        <pre>
+                _                        
+                \`*-.                    
+                 )  _`-.                 
+                .  : `. .                
+                : _   '  \               
+                ; *` _.   `*-._          
+                `-.-'          `-.       
+                  ;       `       `.     
+                  :.       .        \    
+                  . \  .   :   .-'   .   
+                  '  `+.;  ;  '      :   
+                  :  '  |    ;       ;-. 
+                  ; '   : :`-:     _.`* ;
+         [dev] .*' /  .*' ; .*`- +'  `*' 
+               `*-*   `*-*  `*-*'        
+        </pre>
+    </div>
+</div>
+{% endblock %}

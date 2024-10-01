@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% if title %}
+    <title>{{ title }} - MicroBlog</title>
+    {% else %}
+    <title>Welcome to MicroBlog</title>
+    {% endif %}
+    <link rel="stylesheet" href="styles.css"> <!-- Link to an external stylesheet -->
+    <style>
+        /* Basic reset and styling */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+            padding: 20px;
+        }
+
+        /* Styling for the header bar */
+        header {
+            background-color: #4CAF50;
+            padding: 15px 20px;
+            color: white;
+            text-align: center;
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+
+        /* Navigation bar */
+        nav {
+            margin: 20px 0;
+            text-align: center;
+            font-size: 1.2em;
+        }
+
+        nav a {
+            color: #4CAF50;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #388E3C;
+        }
+
+        /* Main content block styling */
+        .container {
+            background-color: #fff;
+            padding: 30px;
+            max-width: 800px;
+            margin: 0 auto;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        hr {
+            border: none;
+            height: 1px;
+            background-color: #ddd;
+            margin: 20px 0;
+        }
+
+        /* Footer styling */
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 0.9em;
+            color: #777;
+        }
+
+        footer p {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        {% if title %}
+        <h1>{{ title }}</h1>
+        {% else %}
+        <h1>Welcome to MicroBlog</h1>
+        {% endif %}
+    </header>
+
+    <!-- Navigation Section -->
+    <nav aria-label="Main navigation">
+        <div>
+            MicroBlog: <a href="/index">Home</a> | <a href="/about">About</a> | <a href="/contact">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Main Content Container -->
+    <main class="container">
+        <hr>
+        <!-- Placeholder for dynamic content -->
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2024 MicroBlog. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
